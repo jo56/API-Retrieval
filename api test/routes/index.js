@@ -6,5 +6,4 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../', 'views', 'mainpage.html'));
 });
 
-
 module.exports = router;

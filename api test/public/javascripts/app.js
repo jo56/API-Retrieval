@@ -4,6 +4,7 @@ var app = angular.module('angularjsNodejsTutorial', []);
 app.controller('apiController', function($scope, $http) {
 
 
+var completeList;
 
   $scope.getData = function(){
   	console.log("Test");
@@ -25,6 +26,7 @@ app.controller('apiController', function($scope, $http) {
       console.log(response.data.response);
 
       dataArray = response.data;
+      completeList = response.data.response;
        $scope.totalData = response.data.response;
         // this callback will be called asynchronously
         // when the response is available
@@ -38,6 +40,20 @@ app.controller('apiController', function($scope, $http) {
     }
 
     $scope.search = function(){
+
+      var arrayfilter = completeList;
+
+      var field = this.dataSearch;
+      var regexstring = '^' + field + '(.*)';
+      let re = new RegExp(regexstring);
+     
+
+
+      const matchedSites = arrayfilter.filter(arrayfilter => arrayfilter.country.match(re));
+
+      $scope.totalData = matchedSites;
+      //console.log(matchedSites);
+      //console.log(field);
     }
 
 });
