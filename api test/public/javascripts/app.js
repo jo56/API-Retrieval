@@ -25,9 +25,11 @@ var completeList;
       console.log(response.data);
       console.log(response.data.response);
 
-      dataArray = response.data;
-      completeList = response.data.response;
-       $scope.totalData = response.data.response;
+      dataArray = response.data.response;
+      newdata = dataArray.sort(function(a, b) { return a.country.localeCompare(b.country)});
+      console.log(newdata);
+      completeList = newdata;
+       $scope.totalData = newdata;
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
@@ -45,7 +47,7 @@ var completeList;
 
       var field = this.dataSearch;
       var regexstring = '^' + field + '(.*)';
-      let re = new RegExp(regexstring);
+      let re = new RegExp(regexstring, "i");
      
 
 
