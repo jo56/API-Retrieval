@@ -28,26 +28,30 @@
     <!-- Sample Content. You can either use this or make your own -->
     <div class="container main-container">
       <div class="jumbotron">
-        <div class="h5">Api Retreival</div>
-        <br>
+         <div class="input-container">
+          <div class="h5">Api Retreival</div>
+          <br>
+          <button id="submitDataBtn" class="submit-btn" ng-click="getData()">Fetch Data</button>
+        </div>
         <div class="input-container">
+          <br>
           <div class="h6">Data Search</div>
           <input type="text" ng-model="dataSearch" placeholder="Enter information" id="dataSearch" class="data-input"/>
-          <button id="submitDataBtn" class="submit-btn" ng-click="submitIds()">Submit</button>
+          <button id="submitDataBtn" class="submit-btn" ng-click="search()">Search</button>
         </div>
         <div class="data-container">
           <div class="h6">Available Data</div>
           <div class="data">
-            <div class="header"><strong>A</strong></div>
-            <div class="header"><strong>B</strong></div>
-            <div class="header"><strong>C</strong></div>
-            <div class="header"><strong>D</strong></div>
+            <div class="header"><strong>Country</strong></div>
+            <div class="header"><strong>Population</strong></div>
+            <div class="header"><strong>Total Cases</strong></div>
+            <div class="header"><strong>Total Tests</strong></div>
           </div>
           <div class="data" id="results" ng-repeat="data in totalData">
-            <div class="title">{{data.title}}</div>
-            <div class="id">{{data.id}}</div>
-            <div class="rating">{{data.rating}}</div>
-            <div class="vote-count">{{data.vote_count}}</div>
+            <div class="title">{{data.country}}</div>
+            <div class="rating">{{data.population}}</div>
+            <div class="id">{{data.cases.total}}</div>
+            <div class="vote-count">{{data.tests.total}}</div>
           </div>
         </div>
       </div>
