@@ -3,11 +3,20 @@ var app = angular.module('angularjsNodejsTutorial', []);
 
 app.controller('apiController', function($scope, $http) {
 
+$scope.buttonText = 'Fetch Data';
 
 var completeList;
 
-  $scope.getData = function(){
+  $scope.getData = function(event){
   	console.log("Test");
+    angular.element(document.getElementById('submitDataBtn'))[0].disabled = true;
+    var load = false;
+    $scope.buttonText = 'Waiting...'
+
+    
+    
+  //event.srcElement.setEnabled(false);
+ // event.srcElement.setClickable(false);
 
     var corona = {
      method: 'GET',
@@ -31,14 +40,30 @@ var completeList;
       filteredData = newdata.filter(newdata => newdata.country != 'MS-Zaandam-' && newdata.country != 'Diamond-Princess-');
       completeList = filteredData;
        $scope.totalData = filteredData;
+        angular.element(document.getElementById('submitDataBtn'))[0].disabled = false;
+        load = true;
+        $scope.buttonText = 'Fetch Data';
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
 
         console.log('error: ' + response)
+         angular.element(document.getElementById('submitDataBtn'))[0].disabled = false;
+         load = true;
+         $scope.buttonText = 'Fetch Data';
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
+
+   /* while(load === false)
+    {
+      $scope.buttonText = 'Waiting.'
+      $scope.buttonText = 'Waiting..'
+      $scope.buttonText = 'Waiting...'
+    }*/
+     
+      //this.submitDataBtn.setEnabled(true);
+     // this.submitDataBtn.setClickable(true);
 
     }
 
