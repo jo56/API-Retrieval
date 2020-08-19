@@ -28,8 +28,9 @@ var completeList;
       dataArray = response.data.response;
       newdata = dataArray.sort(function(a, b) { return a.country.localeCompare(b.country)});
       console.log(newdata);
-      completeList = newdata;
-       $scope.totalData = newdata;
+      filteredData = newdata.filter(newdata => newdata.country != 'MS-Zaandam-' && newdata.country != 'Diamond-Princess-');
+      completeList = filteredData;
+       $scope.totalData = filteredData;
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
