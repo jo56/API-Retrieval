@@ -50,6 +50,6 @@
   padding: 0 10px;
 }
 
-.data .header, .data .title, .data .id, .data .rating, .data .vote-count {
-  flex: 1 0 25%;
+.data .header, .data .country, .data .pop, .data .cases, .data .tests, .data .deaths, .data .newcase {
+  flex: 1 0 18%;
 }

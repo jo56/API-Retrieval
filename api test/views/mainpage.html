@@ -29,9 +29,9 @@
           <div class="h5">Coronavirus Data Retrieval <button id="submitDataBtn" class="submit-btn" ng-disabled="apiController.disable" ng-click="getData()">{{buttonText}}</button></div>
           <br>          
           <div class="h7">This application takes data from a free api that tracks coronavirus data for countries around the world, 
-          featuring the most recent cases/deaths/testing updates </div>
+          featuring the most recent population, cases, testing and death updates. The data should be up to date, where the number of new cases reflects the number of cases today</div>
           <br>
-          <div class="h7">To use, simply press the "Fetch Data" button to call the information from the api. <br> After receiving this information, 
+          <div class="h7">To use, press the "Fetch Data" button to call the information from the api. <br> After receiving this information, 
            enter text into the search bar and hit "search" to filter the results, matching any country that starts with the characters you entered</div>
           
         </div>
@@ -47,13 +47,17 @@
             <div class="header"><strong>Country/Continent</strong></div>
             <div class="header"><strong>Population</strong></div>
             <div class="header"><strong>Total Cases</strong></div>
+            <div class="header"><strong>Total Deaths</strong></div>
             <div class="header"><strong>Total Tests</strong></div>
+            <div class="header"><strong>New Cases</strong></div>
           </div>
           <div class="data" id="results" ng-repeat="data in totalData">
-            <div class="title">{{data.country}}</div>
-            <div class="rating">{{data.population}}</div>
-            <div class="id">{{data.cases.total}}</div>
-            <div class="vote-count">{{data.tests.total}}</div>
+            <div class="country">{{data.country}}</div>
+            <div class="pop">{{data.population}}</div>
+            <div class="cases">{{data.cases.total}}</div>
+            <div class="deaths">{{data.deaths.total}}</div>
+            <div class="deaths">{{data.tests.total}}</div>
+            <div class="newcase">{{data.cases.new}}</div>
           </div>
         </div>
       </div>
