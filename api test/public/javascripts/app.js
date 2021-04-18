@@ -55,15 +55,6 @@ var completeList;
         // or server returns response with an error status.
       });
 
-   /* while(load === false)
-    {
-      $scope.buttonText = 'Waiting.'
-      $scope.buttonText = 'Waiting..'
-      $scope.buttonText = 'Waiting...'
-    }*/
-     
-      //this.submitDataBtn.setEnabled(true);
-     // this.submitDataBtn.setClickable(true);
 
     }
 
@@ -80,8 +71,6 @@ var completeList;
       const matchedSites = arrayfilter.filter(arrayfilter => arrayfilter.country.match(re));
 
       $scope.totalData = matchedSites;
-      //console.log(matchedSites);
-      //console.log(field);
     }
 
 });
